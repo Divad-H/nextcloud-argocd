@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nextcloud-configmap
+data:
+  PUID: '1000'
+  PGID: '1000'
+  TZ: Europe/Berlin
+  MYSQL_HOST: nextcloud-mariadb.nextcloud.svc.cluster.local
+  MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+  MYSQL_DATABASE: nextcloud
+  MYSQL_USER: nextcloud
+  REDIS_HOST: redis.nextcloud.svc.cluster.local

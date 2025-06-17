@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextcloud-mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud-mariadb
+  template:
+    metadata:
+      labels:
+        app: nextcloud-mariadb
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: slave-pi-1
+      containers:
+        - name: nextcloud-mariadb
+          image: mariadb
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          envFrom:
+          - secretRef:
+              name: nextcloud-secrets
+          - configMapRef:
+              name: nextcloud-configmap
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mariadbdata
+      volumes:
+        - name: mariadbdata
+          persistentVolumeClaim:
+            claimName: nextcloud-mariadb-volume-claim

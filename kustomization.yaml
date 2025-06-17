@@ -1,0 +1,12 @@
+resources:
+- nextcloud-configmap.yaml
+- nextcloud-sealed-secrets.yaml
+- nextcloud-mariadb-volume-claim.yaml
+- nextcloud-volume-claim.yaml
+- nextcloud-mariadb-service.yaml
+- redis-service.yaml
+- nextcloud-service.yaml
+- nextcloud-mariadb-deployment.yaml
+- redis-deployment.yaml
+- nextcloud-deployment.yaml
+- local-nextcloud-ingress-route.yaml

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextcloud
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+        - name: nextcloud
+          image: nextcloud
+          imagePullPolicy: IfNotPresent
+          envFrom:
+          - secretRef:
+              name: nextcloud-secrets
+          - configMapRef:
+              name: nextcloud-configmap
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: nextcloud-html         
+      volumes:
+        - name: nextcloud-html
+          persistentVolumeClaim:
+            claimName: nextcloud-volume-claim
