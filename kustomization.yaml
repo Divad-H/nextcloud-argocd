@@ -1,4 +1,5 @@
 resources:
+- nextcloud-hynix-storage-class.yaml
 - nextcloud-configmap.yaml
 - nextcloud-sealed-secrets.yaml
 - nextcloud-mariadb-volume-claim.yaml
