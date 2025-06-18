@@ -11,3 +11,4 @@ resources:
 - redis-deployment.yaml
 - nextcloud-deployment.yaml
 - local-nextcloud-ingress-route.yaml
+- nextcloud-ingress-route.yaml
