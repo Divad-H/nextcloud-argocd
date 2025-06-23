@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nextcloud
-          image: nextcloud
+          image: nextcloud:stable
           imagePullPolicy: IfNotPresent
           envFrom:
           - secretRef:
