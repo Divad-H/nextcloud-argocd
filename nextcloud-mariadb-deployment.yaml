@@ -16,7 +16,7 @@ spec:
         kubernetes.io/hostname: slave-pi-1
       containers:
         - name: nextcloud-mariadb
-          image: mariadb
+          image: mariadb:lts
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
